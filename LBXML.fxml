@@ -359,7 +359,7 @@
                         <TextField fx:id="set_lb_u_name_field" layoutX="86.0" layoutY="110.0" />
                         <TextField fx:id="set_lb_p_word_field" layoutX="85.0" layoutY="158.0" />
                         <Button layoutX="178.0" layoutY="203.0" mnemonicParsing="false" onAction="#set_u_p_submitButtonAction" text="Submit" />
-                        <Label layoutX="35.0" layoutY="251.0" prefHeight="17.0" prefWidth="229.0" />
+                        <Label fx:id="set_lb_u_p_noti_lab" layoutX="35.0" layoutY="251.0" prefHeight="17.0" prefWidth="229.0" />
                      </children>
                   </Pane>
                   <Pane fx:id="view_lb_p_u_pane" layoutX="179.0" layoutY="18.0" prefHeight="278.0" prefWidth="290.0" visible="false">
@@ -371,10 +371,10 @@
                         <Label layoutX="114.0" layoutY="106.0" text="Password:" />
                         <Label layoutX="115.0" layoutY="159.0" text="Username:" />
                         <Label layoutX="116.0" layoutY="189.0" text="Password:" />
-                        <Label layoutX="177.0" layoutY="77.0" prefHeight="17.0" prefWidth="107.0" />
-                        <Label layoutX="178.0" layoutY="106.0" prefHeight="17.0" prefWidth="103.0" />
-                        <Label layoutX="178.0" layoutY="159.0" prefHeight="17.0" prefWidth="107.0" />
-                        <Label layoutX="176.0" layoutY="190.0" prefHeight="17.0" prefWidth="111.0" />
+                        <Label fx:id="slb_u_view_lab" layoutX="177.0" layoutY="77.0" prefHeight="17.0" prefWidth="107.0" />
+                        <Label fx:id="slb_p_view_lab" layoutX="178.0" layoutY="106.0" prefHeight="17.0" prefWidth="103.0" />
+                        <Label fx:id="jlb_u_view_lab" layoutX="178.0" layoutY="159.0" prefHeight="17.0" prefWidth="107.0" />
+                        <Label fx:id="jlb_p_view_lab" layoutX="176.0" layoutY="190.0" prefHeight="17.0" prefWidth="111.0" />
                      </children>
                   </Pane>
                   <Pane fx:id="lb_block_acc_pane" layoutX="179.0" layoutY="18.0" prefHeight="271.0" prefWidth="290.0" visible="false">

@@ -633,8 +633,24 @@ public class LBXMLController implements Initializable {
         set_u_p_lb_pane.setVisible(false);
 
     }
+    @FXML
+    private Label slb_u_view_lab;
+    
+    @FXML
+    private Label jlb_u_view_lab;
+    
+    @FXML
+    private Label slb_p_view_lab;
+    
+    @FXML
+    private Label jlb_p_view_lab;
+    
      @FXML
     void view_u_p_ButtonAction(ActionEvent event) {
+        slb_u_view_lab.setText(slb1.getLib_u_name());
+        slb_p_view_lab.setText(slb1.getLib_p_word());
+        jlb_u_view_lab.setText(jlb1.getLib_u_name());
+        jlb_p_view_lab.setText(jlb1.getLib_p_word());
         lb_block_acc_pane.setVisible(false);
         view_lb_p_u_pane.setVisible(true);
         set_u_p_lb_pane.setVisible(false);
@@ -660,8 +676,29 @@ public class LBXMLController implements Initializable {
     @FXML
     private TextField set_lb_p_word_field;
     
+    SeniorLibrarian slb1;
+    JuniorLibrarin jlb1;
+    
+    @FXML
+    private Label set_lb_u_p_noti_lab;
+    
      @FXML
     void set_u_p_submitButtonAction(ActionEvent event) {
+        
+        if(set_seniorLb_radio_id.isSelected()){
+            slb1 = new SeniorLibrarian(set_lb_u_name_field.getText(),set_lb_p_word_field.getText());
+            set_lb_u_p_noti_lab.setText("Submission Successful!!!");
+        }
+        
+        else if(set_juniorLb_radio_id.isSelected()){
+            jlb1 = new JuniorLibrarin(set_lb_u_name_field.getText(),set_lb_p_word_field.getText());
+            set_lb_u_p_noti_lab.setText("Submission Successful!!!");
+        }
+        
+        else{
+            set_lb_u_p_noti_lab.setText("Submission Not Successful!!!");
+        }
+        
 
     }
 
