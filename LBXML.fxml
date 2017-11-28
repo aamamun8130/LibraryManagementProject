@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="498.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="librarymanagement.LBXMLController">
+   <children>
+      <ImageView fitHeight="379.0" fitWidth="555.0" layoutX="170.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@lib.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane prefHeight="75.0" prefWidth="725.0" style="-fx-background-color: #72041e;">
+         <children>
+            <Label layoutX="168.0" layoutY="14.0" prefHeight="40.0" prefWidth="425.0" text="Library Management System" textFill="#1b278f">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="503.0" prefHeight="25.0" prefWidth="725.0" style="-fx-background-color: #72041e;" />
+      <AnchorPane layoutY="75.0" prefHeight="428.0" prefWidth="241.0" style="-fx-background-color: #772f1d;">
+         <children>
+            <JFXButton fx:id="studentButton" alignment="CENTER" layoutX="11.0" layoutY="65.0" onAction="#studentButtonAction" prefHeight="50.0" prefWidth="220.0" style="-fx-border-color: white; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-background-color: #fc8f5f;" text="Student" textFill="#512d0a">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="librarianButton" alignment="CENTER" layoutX="11.0" layoutY="136.0" onAction="#librarianButtonAction" prefHeight="50.0" prefWidth="220.0" style="-fx-border-color: white; -fx-background-color: #fc8f5f; -fx-border-radius: 5;" text="Librarian" textFill="#512d0a">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </JFXButton>
+            <JFXButton alignment="CENTER" layoutX="10.0" layoutY="208.0" onAction="#accountantButtonAction" prefHeight="50.0" prefWidth="220.0" style="-fx-border-color: white; -fx-background-color: #fc8f5f; -fx-border-radius: 5;" text="Accountant" textFill="#512d0a">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </JFXButton>
+            <JFXButton alignment="CENTER" layoutX="10.0" layoutY="277.0" onAction="#authorityButtonAction" prefHeight="50.0" prefWidth="220.0" style="-fx-border-color: white; -fx-background-color: #fc8f5f; -fx-border-radius: 5;" text="Autority" textFill="#512d0a">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </JFXButton>
+            <JFXButton alignment="CENTER" layoutX="10.0" layoutY="350.0" prefHeight="50.0" prefWidth="220.0" style="-fx-border-color: white; -fx-background-color: #fc8f5f; -fx-border-radius: 5;" text="About" textFill="#512d0a">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="22.0" prefHeight="50.0" prefWidth="191.0" text="Choice Option" textFill="#6097bf">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="241.0" layoutY="75.0" prefHeight="62.0" prefWidth="484.0" style="-fx-background-color: #772f1d;" />
+      <AnchorPane fx:id="studentNavigation" layoutX="240.0" layoutY="270.0" prefHeight="138.0" prefWidth="193.0" style="-fx-background-color: #f46542; -fx-border-color: gray;" visible="false">
+         <children>
+            <JFXButton fx:id="createAccountButton" layoutX="2.0" layoutY="43.0" onAction="#createAccountButtonAction" prefHeight="40.0" prefWidth="193.0" style="-fx-border-color: white;" text="Create Account" textFill="#1e1982" />
+            <JFXButton fx:id="loginButton" layoutX="3.0" layoutY="92.0" onAction="#loginButtonAction" prefHeight="40.0" prefWidth="191.0" style="-fx-border-color: white;" text="Login" textFill="#941d72" />
+            <Label fx:id="stdxlab1" layoutX="170.0" layoutY="2.0" onMouseClicked="#act1" prefHeight="25.0" prefWidth="20.0" text="  X">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="createAccountNavigation" layoutX="451.0" layoutY="164.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="335.0" prefWidth="261.0" style="-fx-background-color: #f46542; -fx-border-color: gray;" visible="false">
+         <children>
+            <TextField fx:id="st_uname" layoutX="21.0" layoutY="71.0" prefHeight="25.0" prefWidth="220.0" />
+            <Label layoutX="21.0" layoutY="39.0" text="User Name" />
+            <Label layoutX="21.0" layoutY="107.0" text="Pasword" />
+            <Label layoutX="21.0" layoutY="168.0" text="Confirm Password" />
+            <JFXButton fx:id="btn_regst" layoutX="144.0" layoutY="245.0" onAction="#st_registration" prefHeight="25.0" prefWidth="97.0" style="-fx-border-color: black;" text="Submit" textFill="#1f5b1f" />
+            <Label fx:id="reg_warning" layoutX="17.0" layoutY="261.0" prefHeight="40.0" prefWidth="229.0" text=" " textFill="#ee0712">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="stdxlab2" layoutX="231.0" layoutY="4.0" onMouseClicked="#act1" prefHeight="25.0" prefWidth="20.0" text="  X">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="st_pass" layoutX="21.0" layoutY="136.0" prefHeight="25.0" prefWidth="220.0" />
+            <PasswordField fx:id="st_cpass" layoutX="21.0" layoutY="193.0" prefWidth="220.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="loginNavigation" layoutX="452.0" layoutY="163.0" prefHeight="335.0" prefWidth="261.0" style="-fx-background-color: #f46542; -fx-border-color: gray;" visible="false">
+         <children>
+            <TextField fx:id="log_u_name_Id" layoutX="22.0" layoutY="108.0" prefHeight="25.0" prefWidth="220.0" />
+            <Label layoutX="22.0" layoutY="79.0" text="User Name" />
+            <Label layoutX="22.0" layoutY="142.0" text="Pasword" />
+            <JFXButton fx:id="loginbutton2" layoutX="143.0" layoutY="215.0" onAction="#loginButton2Action" prefHeight="25.0" prefWidth="97.0" style="-fx-border-color: white;" text="Login" textAlignment="CENTER" textFill="#1f5b1f" />
+            <Label fx:id="login_alarm" layoutX="16.0" layoutY="252.0" prefHeight="40.0" prefWidth="229.0" textFill="#ee0712">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="stdxlab3" layoutX="231.0" layoutY="4.0" onMouseClicked="#act1" prefHeight="25.0" prefWidth="20.0" text="  X">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="log_p_word_Id" layoutX="22.0" layoutY="169.0" prefHeight="25.0" prefWidth="220.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="241.0" layoutY="135.0" prefHeight="3.0" prefWidth="482.0" style="-fx-background-color: gray;" />
+      <AnchorPane fx:id="plate" layoutX="240.0" layoutY="138.0" prefHeight="365.0" prefWidth="482.0" style="-fx-background-color: #ce7058;" visible="false">
+         <children>
+            <AnchorPane fx:id="std_nav" prefHeight="50.0" prefWidth="482.0" style="-fx-background-color: lightgray;">
+               <children>
+                  <Label fx:id="lab1" layoutX="31.0" layoutY="9.0" onMouseClicked="#act1" opacity="0.8" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #ea3709;" text=" Book Search" textAlignment="CENTER" textFill="#f8f8f8" />
+                  <Label fx:id="lab2" layoutX="141.0" layoutY="9.0" onMouseClicked="#act1" opacity="0.8" prefHeight="25.0" prefWidth="96.0" style="-fx-background-color: #ea3709;" text=" Your library info" textFill="#fcfafa" />
+                  <Label fx:id="lab3" layoutX="270.0" layoutY="9.0" onMouseClicked="#act1" opacity="0.8" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #ea3709;" text="     Fine" textFill="#f8f6f6" />
+                  <Label fx:id="logoutLavel" layoutX="376.0" layoutY="9.0" onMouseClicked="#logoutAction" opacity="0.8" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #ea3709;" text="     logout" textFill="#fcf9f9" />
+               </children>
+            </AnchorPane>
+            <Pane layoutY="50.0" prefHeight="3.0" prefWidth="482.0" style="-fx-background-color: gray;" />
+            <Pane fx:id="selmover" layoutX="30.0" layoutY="50.0" prefHeight="3.0" prefWidth="69.0" style="-fx-background-color: red;" visible="false" />
+            <AnchorPane fx:id="bookSearchpane" layoutX="7.0" layoutY="58.0" prefHeight="297.0" prefWidth="470.0" visible="false">
+               <children>
+                  <Label layoutX="26.0" layoutY="39.0" prefHeight="25.0" prefWidth="93.0" text="Enter Book Name" />
+                  <TextField layoutX="26.0" layoutY="71.0" prefHeight="25.0" prefWidth="169.0" />
+                  <JFXButton layoutX="119.0" layoutY="112.0" prefHeight="27.0" prefWidth="76.0" style="-fx-border-color: white;" text="Search" />
+                  <AnchorPane layoutX="215.0" layoutY="3.0" prefHeight="288.0" prefWidth="241.0" style="-fx-background-color: #f7ae9b; -fx-border-color: white;">
+                     <children>
+                        <Label layoutX="34.0" layoutY="21.0" prefHeight="25.0" prefWidth="179.0" style="-fx-background-color: white;" text="            Searching Result" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="yourlibinfo" layoutX="14.0" layoutY="58.0" prefHeight="297.0" prefWidth="470.0" visible="false">
+               <children>
+                  <Label layoutX="156.0" layoutY="84.0" prefHeight="17.0" prefWidth="103.0" text="Your info" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="finelab" layoutX="14.0" layoutY="58.0" prefHeight="297.0" prefWidth="462.0" visible="false">
+               <children>
+                  <Label layoutX="155.0" layoutY="115.0" text="fine" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="librarianNavigation" layoutX="258.0" layoutY="170.0" prefHeight="294.0" prefWidth="462.0" style="-fx-background-color: #f46542; -fx-border-color: gray;" visible="false">
+         <children>
+            <TextField layoutX="230.0" layoutY="103.0" prefHeight="25.0" prefWidth="220.0" />
+            <Label layoutX="231.0" layoutY="79.0" text="User Name" />
+            <Label layoutX="231.0" layoutY="138.0" text="Pasword" />
+            <JFXButton layoutX="353.0" layoutY="208.0" onAction="#librarianLoginAction" prefHeight="25.0" prefWidth="97.0" style="-fx-border-color: white;" text="Login" textAlignment="CENTER" textFill="#1f5b1f" />
+            <Label layoutX="230.0" layoutY="252.0" prefHeight="40.0" prefWidth="229.0" text="Alarm!!! User name in not acceptable." textFill="#ee0712">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="librarianNavigationExit" layoutX="432.0" layoutY="3.0" onMouseClicked="#act2" prefHeight="25.0" prefWidth="20.0" text="  X">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="299.0" layoutY="28.0" text="Sign In" textFill="#140a06">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="213.0" fitWidth="220.0" layoutX="4.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@lib2.jpg" />
+               </image>
+            </ImageView>
+            <PasswordField layoutX="231.0" layoutY="166.0" prefHeight="25.0" prefWidth="220.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="librarianafterloginancorepane" layoutX="241.0" layoutY="138.0" prefHeight="365.0" prefWidth="484.0" style="-fx-background-color: #a53b30;" visible="false">
+         <children>
+            <Label layoutX="9.0" layoutY="18.0" prefHeight="27.0" prefWidth="114.0" text="Student Username" textFill="#f8f1f1">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <TextField layoutX="121.0" layoutY="21.0" prefHeight="25.0" prefWidth="193.0" />
+            <JFXButton layoutX="338.0" layoutY="21.0" style="-fx-background-color: #fc8d5d;" text="Search" />
+            <JFXButton layoutX="409.0" layoutY="21.0" onAction="#librarianLogoutButtonAction" style="-fx-background-color: #fc8d5d;" text="Log Out" />
+            <AnchorPane layoutY="93.0" opacity="0.68" prefHeight="265.0" prefWidth="179.0" style="-fx-background-color: #fc8d5d;">
+               <children>
+                  <JFXButton layoutX="10.0" layoutY="24.0" onAction="#studentinfoButtonAction" prefHeight="25.0" prefWidth="157.0" style="-fx-background-color: #873511;" text="Student Info" textFill="#f8f5f5">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="11.0" layoutY="86.0" onAction="#borrowbookButtonAction" prefHeight="25.0" prefWidth="157.0" style="-fx-background-color: #873511;" text="Borrow Book" textFill="#f8f4f4">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="11.0" layoutY="148.0" onAction="#submissionbookButtonAction" prefHeight="25.0" prefWidth="157.0" style="-fx-background-color: #873511;" text="Submission Book" textFill="#ebe7e7">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="settinglab" layoutX="10.0" layoutY="210.0" onAction="#settingButtonAction" prefHeight="25.0" prefWidth="157.0" style="-fx-background-color: #873511;" text="Setting" textFill="#f5f3f3">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="studentinfopane" layoutX="190.0" layoutY="93.0" prefHeight="265.0" prefWidth="290.0" style="-fx-background-color: #fc8d5d;" visible="false">
+               <children>
+                  <Label layoutX="14.0" layoutY="27.0" prefHeight="17.0" prefWidth="93.0" text="Student info" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="borrowbookpane" layoutX="190.0" layoutY="93.0" prefHeight="265.0" prefWidth="290.0" style="-fx-background-color: #fc8d5d;" visible="false">
+               <children>
+                  <Label layoutX="22.0" layoutY="27.0" text="borrow book" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="submissionbookpane" layoutX="190.0" layoutY="93.0" prefHeight="265.0" prefWidth="290.0" style="-fx-background-color: #fc8d5d;" visible="false">
+               <children>
+                  <Label layoutX="47.0" layoutY="46.0" text="submossion" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="settingpane" layoutX="190.0" layoutY="93.0" prefHeight="265.0" prefWidth="290.0" style="-fx-background-color: #fc8d5d;" visible="false">
+               <children>
+                  <Label layoutX="77.0" layoutY="73.0" text="setting" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="accountantNavigation" layoutX="281.0" layoutY="176.0" prefHeight="288.0" prefWidth="403.0" style="-fx-background-color: #911e01;" visible="false">
+         <children>
+            <Label fx:id="accountantNavigationExit1" layoutX="374.0" layoutY="4.0" onMouseClicked="#accountantNavigationExit" prefHeight="25.0" prefWidth="20.0" text="  X">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="216.0" layoutY="25.0" text="Sign In" textFill="#140a06">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label layoutX="144.0" layoutY="84.0" text="User Name" textFill="#f2f0f0" />
+            <Label layoutX="144.0" layoutY="146.0" text="Pasword" textFill="#fcf9f9" />
+            <TextField layoutX="144.0" layoutY="112.0" prefHeight="25.0" prefWidth="220.0" />
+            <JFXButton fx:id="log" layoutX="264.0" layoutY="214.0" onAction="#accountantLoginButtonAction" prefHeight="25.0" prefWidth="97.0" style="-fx-border-color: white;" text="Login" textAlignment="CENTER" textFill="#f8f8f8" />
+            <Label layoutX="134.0" layoutY="243.0" prefHeight="40.0" prefWidth="229.0" text="Alarm!!! User name in not acceptable." textFill="#ee0712">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <PasswordField layoutX="142.0" layoutY="171.0" prefHeight="25.0" prefWidth="220.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="accountantafterloginpane" layoutX="240.0" layoutY="138.0" prefHeight="365.0" prefWidth="484.0" style="-fx-background-color: #5b2c35;" visible="false">
+         <children>
+            <Label layoutX="13.0" layoutY="10.0" prefHeight="25.0" prefWidth="129.0" text=" Student Username" textFill="#fc464f">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="144.0" layoutY="10.0" />
+            <JFXButton layoutX="317.0" layoutY="11.0" style="-fx-background-color: lightblue;" text="Search" />
+            <JFXButton layoutX="388.0" layoutY="11.0" onAction="#accountantSignoutButtonAction" style="-fx-background-color: lightblue;" text="Signout" />
+            <Pane layoutX="14.0" layoutY="45.0" prefHeight="3.0" prefWidth="462.0" style="-fx-background-color: #89021c;" />
+            <Pane layoutX="9.0" layoutY="346.0" prefHeight="3.0" prefWidth="462.0" style="-fx-background-color: #89021c;" />
+            <Pane layoutX="212.0" layoutY="50.0" prefHeight="294.0" prefWidth="8.0" style="-fx-background-color: #89021c;" />
+            <Label layoutX="232.0" layoutY="56.0" prefHeight="27.0" prefWidth="241.0" style="-fx-background-color: #915b68; -fx-alignment: center;" text="Student Information" textFill="#f2f2f2">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="55.0" prefHeight="27.0" prefWidth="191.0" style="-fx-background-color: #915b68; -fx-alignment: center;" text="Payment Systen" textFill="#fcfcfc">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="10.0" layoutY="92.0" prefHeight="242.0" prefWidth="191.0" style="-fx-background-color: #915b68;">
+               <children>
+                  <Label layoutX="25.0" layoutY="36.0" text="Enter Due Amount" textFill="#ebe3e3">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="20.0" layoutY="74.0" />
+                  <JFXButton layoutX="116.0" layoutY="120.0" style="-fx-background-color: white;" text="Submit" />
+                  <Pane layoutX="6.0" layoutY="163.0" prefHeight="69.0" prefWidth="179.0" style="-fx-background-color: #cca7b0;">
+                     <children>
+                        <Label layoutX="52.0" layoutY="26.0" text="Notification" />
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+            <Pane layoutX="232.0" layoutY="92.0" prefHeight="242.0" prefWidth="241.0" style="-fx-background-color: #915b68;" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="authorityNavigation" layoutX="241.0" layoutY="138.0" prefHeight="365.0" prefWidth="484.0" style="-fx-background-color: #666699;" visible="false">
+         <children>
+            <Pane layoutX="7.0" layoutY="6.0" prefHeight="47.0" prefWidth="470.0" style="-fx-background-color: #b3b3cc;">
+               <children>
+                  <Button layoutX="5.0" layoutY="7.0" mnemonicParsing="false" onAction="#authorityStudentButton" prefHeight="32.0" prefWidth="111.0" text="student" />
+                  <Button layoutX="126.0" layoutY="7.0" mnemonicParsing="false" onAction="#authoritylibrarianButton" prefHeight="32.0" prefWidth="111.0" text="librarian" />
+                  <Button layoutX="245.0" layoutY="7.0" mnemonicParsing="false" onAction="#authorityAccountanttButton" prefHeight="32.0" prefWidth="111.0" text="accountant" />
+                  <Button layoutX="389.0" layoutY="7.0" mnemonicParsing="false" onAction="#authorityLogoutButtonAction" text="logout" />
+               </children>
+            </Pane>
+            <Pane layoutX="42.0" layoutY="96.0" prefHeight="231.0" prefWidth="403.0" style="-fx-background-color: #e0e0eb;" visible="false">
+               <children>
+                  <Label layoutX="157.0" layoutY="25.0" prefHeight="32.0" prefWidth="220.0" style="-fx-alignment: center;" text="Enter Student Username ">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="4.0" layoutY="3.0" opacity="0.66" prefHeight="223.0" prefWidth="114.0" style="-fx-background-color: #27273f;" />
+                  <TextField layoutX="187.0" layoutY="57.0" prefHeight="26.0" prefWidth="157.0" />
+                  <Button layoutX="279.0" layoutY="99.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="66.0" text="Submit" />
+                  <Label layoutX="372.0" layoutY="7.0" prefHeight="18.0" prefWidth="23.0" style="-fx-alignment: center;" text="x" />
+               </children>
+            </Pane>
+            <Pane fx:id="librarianSettingPane" layoutX="7.0" layoutY="61.0" prefHeight="297.0" prefWidth="470.0" style="-fx-background-color: #c0c0d8;" visible="false">
+               <children>
+                  <Pane opacity="0.61" prefHeight="297.0" prefWidth="179.0" style="-fx-background-color: #4d004d;">
+                     <children>
+                        <Label layoutX="33.0" layoutY="22.0" prefHeight="18.0" prefWidth="103.0" style="-fx-text-fill: white; -fx-alignment: center;" text="librarian setting" />
+                        <Button layoutX="15.0" layoutY="64.0" mnemonicParsing="false" onAction="#set_u_p_ButtonAction" prefHeight="32.0" prefWidth="142.0" text="Set U_name &amp; P_word" />
+                        <Button layoutX="16.0" layoutY="117.0" mnemonicParsing="false" onAction="#view_u_p_ButtonAction" prefHeight="32.0" prefWidth="142.0" text="VIEW U_name &amp; P_word" />
+                        <Button layoutX="16.0" layoutY="171.0" mnemonicParsing="false" onAction="#block_lb_ButtonAction" prefHeight="32.0" prefWidth="142.0" text="Block Account" />
+                        <Button layoutX="16.0" layoutY="225.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="142.0" text="Button" />
+                     </children>
+                  </Pane>
+                  <Label layoutX="444.0" layoutY="6.0" prefHeight="18.0" prefWidth="20.0" style="-fx-alignment: center;" text="x" />
+                  <Pane layoutX="179.0" opacity="0.61" prefHeight="18.0" prefWidth="200.0" style="-fx-background-color: #4d004d;">
+                     <children>
+                        <Pane layoutY="8.0" prefHeight="3.0" prefWidth="152.0" style="-fx-background-color: #c0c0d8;" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="set_u_p_lb_pane" layoutX="179.0" layoutY="18.0" prefHeight="278.0" prefWidth="290.0" visible="false">
+                     <children>
+                        <Label layoutX="78.0" layoutY="14.0" text="Set Username &amp; Password" />
+                        <Label layoutX="10.0" layoutY="54.0" text="Select:" />
+                        <JFXRadioButton fx:id="set_seniorLb_radio_id" layoutX="54.0" layoutY="54.0" text="SeniorLB">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="tg1" />
+                           </toggleGroup>
+                        </JFXRadioButton>
+                        <JFXRadioButton fx:id="set_juniorLb_radio_id" layoutX="177.0" layoutY="50.0" text="JuniorLB" toggleGroup="$tg1" />
+                        <Label layoutX="87.0" layoutY="82.0" text="Enter Username" />
+                        <Label layoutX="87.0" layoutY="138.0" text="Enter Password" />
+                        <TextField fx:id="set_lb_u_name_field" layoutX="86.0" layoutY="110.0" />
+                        <TextField fx:id="set_lb_p_word_field" layoutX="85.0" layoutY="158.0" />
+                        <Button layoutX="178.0" layoutY="203.0" mnemonicParsing="false" onAction="#set_u_p_submitButtonAction" text="Submit" />
+                        <Label layoutX="35.0" layoutY="251.0" prefHeight="17.0" prefWidth="229.0" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="view_lb_p_u_pane" layoutX="179.0" layoutY="18.0" prefHeight="278.0" prefWidth="290.0" visible="false">
+                     <children>
+                        <Label layoutX="65.0" layoutY="23.0" text="Librarian Username &amp; Password" />
+                        <Label layoutX="49.0" layoutY="51.0" text="Senior Librarian:" />
+                        <Label layoutX="49.0" layoutY="134.0" text="Junior Librarian:" />
+                        <Label layoutX="113.0" layoutY="76.0" text="Username:" />
+                        <Label layoutX="114.0" layoutY="106.0" text="Password:" />
+                        <Label layoutX="115.0" layoutY="159.0" text="Username:" />
+                        <Label layoutX="116.0" layoutY="189.0" text="Password:" />
+                        <Label layoutX="177.0" layoutY="77.0" prefHeight="17.0" prefWidth="107.0" />
+                        <Label layoutX="178.0" layoutY="106.0" prefHeight="17.0" prefWidth="103.0" />
+                        <Label layoutX="178.0" layoutY="159.0" prefHeight="17.0" prefWidth="107.0" />
+                        <Label layoutX="176.0" layoutY="190.0" prefHeight="17.0" prefWidth="111.0" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="lb_block_acc_pane" layoutX="179.0" layoutY="18.0" prefHeight="271.0" prefWidth="290.0" visible="false">
+                     <children>
+                        <Label layoutX="19.0" layoutY="36.0" text="Block Account" />
+                        <JFXRadioButton layoutY="61.0" text="SeniorLB">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="tog2" />
+                           </toggleGroup></JFXRadioButton>
+                        <Button layoutX="48.0" layoutY="123.0" mnemonicParsing="false" text="Submit" />
+                        <Label layoutX="14.0" layoutY="158.0" text="Unblock Account" />
+                        <Button layoutX="49.0" layoutY="242.0" mnemonicParsing="false" text="Submit" />
+                        <JFXRadioButton layoutX="-3.0" layoutY="182.0" text="SeniorLB" toggleGroup="$tog2" />
+                        <JFXRadioButton layoutX="-3.0" layoutY="215.0" text="JuniorLB" toggleGroup="$tog2" />
+                        <JFXRadioButton layoutY="93.0" text="JuniorLB" toggleGroup="$tog2" />
+                        <Label layoutX="152.0" layoutY="36.0" text="LIbrarian Account Status" />
+                        <Label layoutX="139.0" layoutY="64.0" text="SeniorLB Account:" />
+                        <Label layoutX="242.0" layoutY="66.0" prefHeight="17.0" prefWidth="45.0" />
+                        <Label layoutX="241.0" layoutY="90.0" prefHeight="17.0" prefWidth="51.0" />
+                        <Label layoutX="142.0" layoutY="88.0" text="JuniorLB Account:" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane fx:id="studentSettingPane" layoutX="7.0" layoutY="61.0" prefHeight="297.0" prefWidth="470.0" style="-fx-background-color: #c0c0d8;" visible="false">
+               <children>
+                  <Pane opacity="0.61" prefHeight="297.0" prefWidth="179.0" style="-fx-background-color: #4d004d;">
+                     <children>
+                        <Label layoutX="33.0" layoutY="22.0" prefHeight="18.0" prefWidth="103.0" style="-fx-text-fill: white; -fx-alignment: center;" text="student Setting" />
+                        <Button layoutX="15.0" layoutY="64.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="142.0" text="Button" />
+                        <Button layoutX="16.0" layoutY="117.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="142.0" text="Button" />
+                        <Button layoutX="16.0" layoutY="171.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="142.0" text="Button" />
+                        <Button layoutX="16.0" layoutY="225.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="142.0" text="Button" />
+                     </children>
+                  </Pane>
+                  <Label layoutX="444.0" layoutY="6.0" prefHeight="18.0" prefWidth="20.0" style="-fx-alignment: center;" text="x" />
+                  <Pane layoutX="179.0" opacity="0.61" prefHeight="18.0" prefWidth="200.0" style="-fx-background-color: #4d004d;">
+                     <children>
+                        <Pane layoutY="8.0" prefHeight="3.0" prefWidth="152.0" style="-fx-background-color: #c0c0d8;" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane fx:id="accountantSettingPane" layoutX="7.0" layoutY="61.0" prefHeight="297.0" prefWidth="470.0" style="-fx-background-color: #c0c0d8;" visible="false">
+               <children>
+                  <Pane opacity="0.61" prefHeight="297.0" prefWidth="179.0" style="-fx-background-color: #4d004d;">
+                     <children>
+                        <Label layoutX="23.0" layoutY="22.0" prefHeight="18.0" prefWidth="122.0" style="-fx-text-fill: white; -fx-alignment: center;" text="accountant Setting" />
+                        <Button layoutX="15.0" layoutY="64.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="142.0" text="Button" />
+                        <Button layoutX="16.0" layoutY="117.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="142.0" text="Button" />
+                        <Button layoutX="16.0" layoutY="171.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="142.0" text="Button" />
+                        <Button layoutX="16.0" layoutY="225.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="142.0" text="Button" />
+                     </children>
+                  </Pane>
+                  <Label layoutX="444.0" layoutY="6.0" prefHeight="18.0" prefWidth="20.0" style="-fx-alignment: center;" text="x" />
+                  <Pane layoutX="179.0" opacity="0.61" prefHeight="18.0" prefWidth="200.0" style="-fx-background-color: #4d004d;">
+                     <children>
+                        <Pane layoutY="8.0" prefHeight="3.0" prefWidth="152.0" style="-fx-background-color: #c0c0d8;" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="std_typer" layoutX="79.0" layoutY="198.0" prefHeight="115.0" prefWidth="152.0" style="-fx-background-color: lightgray;" visible="false">
+         <children>
+            <JFXButton layoutX="34.0" layoutY="26.0" onAction="#localButtonAction" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: WHITE;" text="LOCAL" />
+            <JFXButton layoutX="34.0" layoutY="70.0" onAction="#foreignButtonAction" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: WHITE;" text="FOREIGN" />
+            <Label layoutX="131.0" layoutY="2.0" onMouseClicked="#std_type_lavel_exit" prefHeight="17.0" prefWidth="20.0" text="  X" />
+         </children>
+      </AnchorPane>
+      <Pane fx:id="lib_neg_lab" layoutX="153.0" layoutY="265.0" prefHeight="115.0" prefWidth="157.0" style="-fx-background-color: white;" visible="false">
+         <children>
+            <JFXButton layoutX="28.0" layoutY="31.0" onAction="#seniorLibButtonAction" style="-fx-background-color: lightgray;" text="Senior Librarian" />
+            <JFXButton layoutX="30.0" layoutY="69.0" onAction="#juniorLibButtonAction" style="-fx-background-color: lightgray;" text="Junior Librarian" />
+            <Label fx:id="lib_neg_exit" layoutX="135.0" layoutY="4.0" onMouseClicked="#act2" prefHeight="17.0" prefWidth="20.0" text=" X" />
+         </children>
+      </Pane>
+      <Pane fx:id="aut_neg_lab" layoutX="239.0" layoutY="352.0" prefHeight="149.0" prefWidth="157.0" style="-fx-background-color: white;" visible="false">
+         <children>
+            <JFXButton layoutX="23.0" layoutY="25.0" onAction="#adminButtonAction" prefHeight="25.0" prefWidth="107.0" style="-fx-background-color: lightgray;" text="Admin" />
+            <JFXButton layoutX="23.0" layoutY="62.0" onAction="#counsellerButtonAction" prefHeight="25.0" prefWidth="107.0" style="-fx-background-color: lightgray;" text="Counseller" />
+            <JFXButton layoutX="23.0" layoutY="99.0" onAction="#financeManagerButtonAction" style="-fx-background-color: lightgray;" text="Finance Manager" />
+            <Label fx:id="aut_neg_exit_lab" layoutX="134.0" layoutY="4.0" onMouseClicked="#act3" prefHeight="17.0" prefWidth="23.0" text="  X" />
+         </children>
+      </Pane>
+      <Pane fx:id="controller_home_pane" layoutX="241.0" layoutY="138.0" prefHeight="365.0" prefWidth="484.0" style="-fx-background-color: lightgray;" visible="false">
+         <children>
+            <Label layoutX="173.0" layoutY="156.0" text="controller" />
+            <Pane layoutX="7.0" layoutY="8.0" prefHeight="62.0" prefWidth="470.0" style="-fx-background-color: gray;">
+               <children>
+                  <Button layoutX="38.0" layoutY="17.0" mnemonicParsing="false" text="Button" />
+                  <Button layoutX="158.0" layoutY="18.0" mnemonicParsing="false" text="Button" />
+                  <Button layoutX="270.0" layoutY="19.0" mnemonicParsing="false" text="Button" />
+                  <Button layoutX="373.0" layoutY="21.0" mnemonicParsing="false" onAction="#controllerLogoutButtonAction" text="Logout" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane fx:id="finance_m_Home_pane" layoutX="241.0" layoutY="138.0" prefHeight="365.0" prefWidth="484.0" style="-fx-background-color: lightgray;" visible="false">
+         <children>
+            <Label layoutX="164.0" layoutY="104.0" text="finance" />
+            <Pane layoutX="7.0" layoutY="8.0" prefHeight="69.0" prefWidth="470.0" style="-fx-background-color: gray;">
+               <children>
+                  <Button layoutX="46.0" layoutY="22.0" mnemonicParsing="false" text="Button" />
+                  <Button layoutX="160.0" layoutY="22.0" mnemonicParsing="false" text="Button" />
+                  <Button layoutX="267.0" layoutY="22.0" mnemonicParsing="false" text="Button" />
+                  <Button layoutX="374.0" layoutY="22.0" mnemonicParsing="false" onAction="#financeMangLogoutButtonAction" text="LogOut" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
