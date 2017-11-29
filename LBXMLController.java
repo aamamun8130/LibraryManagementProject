@@ -671,9 +671,13 @@ public class LBXMLController implements Initializable {
     @FXML
     private Label seniorLb_acc_status_lab;
     
+    @FXML
+    private Label view_u_p_noti_lab;
+    
     
      @FXML
     void block_lb_ButtonAction(ActionEvent event) {
+        view_u_p_noti_lab.setText("");
         lb_block_acc_pane.setVisible(true);
         view_lb_p_u_pane.setVisible(false);
         set_u_p_lb_pane.setVisible(false);
@@ -709,6 +713,7 @@ public class LBXMLController implements Initializable {
     
     @FXML
     void lb_block_ButtonAction(ActionEvent event){
+     
         try{
         if(seniorLb_block_tog.isSelected()){
             slb1.setLib_block_status(true);
@@ -795,12 +800,19 @@ public class LBXMLController implements Initializable {
     @FXML
     private Label jlb_p_view_lab;
     
+    
      @FXML
     void view_u_p_ButtonAction(ActionEvent event) {
+        try{
         slb_u_view_lab.setText(slb1.getLib_u_name());
         slb_p_view_lab.setText(slb1.getLib_p_word());
         jlb_u_view_lab.setText(jlb1.getLib_u_name());
         jlb_p_view_lab.setText(jlb1.getLib_p_word());
+        
+        }catch(Exception e){
+            view_u_p_noti_lab.setText("Account Not Found!!!");
+            
+        }
         lb_block_acc_pane.setVisible(false);
         view_lb_p_u_pane.setVisible(true);
         set_u_p_lb_pane.setVisible(false);
@@ -808,6 +820,7 @@ public class LBXMLController implements Initializable {
     }
      @FXML
     void set_u_p_ButtonAction(ActionEvent event) {
+        view_u_p_noti_lab.setText("");
         lb_block_acc_pane.setVisible(false);
         view_lb_p_u_pane.setVisible(false);
         set_u_p_lb_pane.setVisible(true);

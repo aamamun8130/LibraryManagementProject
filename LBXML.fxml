@@ -375,6 +375,11 @@
                         <Label fx:id="slb_p_view_lab" layoutX="178.0" layoutY="106.0" prefHeight="17.0" prefWidth="103.0" />
                         <Label fx:id="jlb_u_view_lab" layoutX="178.0" layoutY="159.0" prefHeight="17.0" prefWidth="107.0" />
                         <Label fx:id="jlb_p_view_lab" layoutX="176.0" layoutY="190.0" prefHeight="17.0" prefWidth="111.0" />
+                        <Label fx:id="view_u_p_noti_lab" layoutX="42.0" layoutY="231.0" prefHeight="17.0" prefWidth="218.0" textFill="#f80d0d">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
                      </children>
                   </Pane>
                   <Pane fx:id="lb_block_acc_pane" layoutX="179.0" layoutY="18.0" prefHeight="271.0" prefWidth="290.0" visible="false">
