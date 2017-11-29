@@ -386,6 +386,26 @@ public class LBXMLController implements Initializable {
         librarianNavigation.setVisible(true);
         lib_neg_lab.setVisible(false);
     }
+    @FXML
+    private TextField e_b_nameFeild;
+    
+    @FXML
+    private TextField e_b_typeFeild;
+    
+    @FXML
+    private TextField e_b_idFeild;
+    
+    @FXML
+    private TextField e_b_selfnoFeild;
+    @FXML
+    private Label book_include_noti_lab;
+    
+    @FXML
+    void bookAddButtonAction(ActionEvent event){
+        jlb1.canAddBook(e_b_nameFeild.getText(), e_b_idFeild.getText(), e_b_typeFeild.getText(), Integer.parseInt(e_b_selfnoFeild.getText()));
+        book_include_noti_lab.setText("Adding Book Successful!!!");
+    }
+    
     
     @FXML
     void juniorLibButtonAction(ActionEvent event){
