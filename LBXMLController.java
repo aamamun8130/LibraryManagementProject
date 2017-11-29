@@ -15,6 +15,8 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -67,8 +69,7 @@ public class LBXMLController implements Initializable {
     }
     int loc_std = 0;
     int fore_std = 0;
-    ForeigenStudent f_std1;
-    LocalStudent l_std1;
+    ObservableList<Student>stdList = FXCollections.observableArrayList();
     
      @FXML
     void st_registration(ActionEvent event) {
@@ -78,11 +79,11 @@ public class LBXMLController implements Initializable {
         else{
            reg_warning.setText("Submission Successful");
            if(fore_std==1){
-               f_std1 = new ForeigenStudent(st_uname.getText(),st_pass.getText(),"foreigen");
+                stdList.add(new ForeigenStudent(st_uname.getText(),st_pass.getText(),"foreigen"));
                
            }
            if(loc_std==1){
-               l_std1 = new LocalStudent(st_uname.getText(),st_pass.getText(),"local");
+               stdList.add( new LocalStudent(st_uname.getText(),st_pass.getText(),"local"));
            }
            clearCreateAccountField();
         }
@@ -190,13 +191,13 @@ public class LBXMLController implements Initializable {
       
        @FXML
     private Label login_alarm;
-
+       int enp_sList;
     
     @FXML
     void loginButton2Action(ActionEvent event) {
-        try {
-           
-        if(fore_std==1 && f_std1.getSTD_TYPE().equals("foreigen") && f_std1.getSTD_PASSWORD().equals(log_p_word_Id.getText()) && f_std1.getSTD_USERNAME().equals(log_u_name_Id.getText())){
+    
+        for(Student std : stdList) {  
+        if(fore_std==1 && std.getSTD_TYPE().equals("foreigen") && std.getSTD_PASSWORD().equals(log_p_word_Id.getText()) && std.getSTD_USERNAME().equals(log_u_name_Id.getText())){
             plate.setVisible(true);
             loginNavigation.setVisible(false);
             createAccountNavigation.setVisible(false);
@@ -204,8 +205,9 @@ public class LBXMLController implements Initializable {
             std_typer.setVisible(false);
             clearLoginField();
             login = true;
+            enp_sList = 1;
          }
-         else  if (loc_std==1 && l_std1.getSTD_TYPE().equals("local") && l_std1.getSTD_USERNAME().equals(log_u_name_Id.getText()) && l_std1.getSTD_PASSWORD().equals(log_p_word_Id.getText()) ){
+         else  if (loc_std==1 && std.getSTD_TYPE().equals("local") && std.getSTD_USERNAME().equals(log_u_name_Id.getText()) && std.getSTD_PASSWORD().equals(log_p_word_Id.getText()) ){
                  plate.setVisible(true);
             loginNavigation.setVisible(false);
             createAccountNavigation.setVisible(false);
@@ -213,20 +215,22 @@ public class LBXMLController implements Initializable {
             std_typer.setVisible(false);
             clearLoginField();
             login = true;
-                 }
+            enp_sList = 1;
+           }
+         
          else{
              
                 login_alarm.setText("Alarm!!! Wrong Entry");
-         }
-        
-        } catch (Exception e) {
-            //here
-            login_alarm.setText("Alarm!!! Something Wrong");
-        } 
-            
-       
-          
+                enp_sList = 1;
+         } 
+      }
+       if(enp_sList != 1) {
+           login_alarm.setText("No Student Account Found!");
        }
+        
+            
+       }
+    
     @FXML
     void logoutAction(MouseEvent event) {
         login = false;
