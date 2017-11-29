@@ -380,20 +380,20 @@
                   <Pane fx:id="lb_block_acc_pane" layoutX="179.0" layoutY="18.0" prefHeight="271.0" prefWidth="290.0" visible="false">
                      <children>
                         <Label layoutX="19.0" layoutY="36.0" text="Block Account" />
-                        <JFXRadioButton layoutY="61.0" text="SeniorLB">
+                        <JFXRadioButton fx:id="seniorLb_block_tog" layoutY="61.0" text="SeniorLB">
                            <toggleGroup>
-                              <ToggleGroup fx:id="tog2" />
+                              <ToggleGroup fx:id="radio1" />
                            </toggleGroup></JFXRadioButton>
-                        <Button layoutX="48.0" layoutY="123.0" mnemonicParsing="false" text="Submit" />
+                        <Button layoutX="48.0" layoutY="123.0" mnemonicParsing="false" onAction="#lb_block_ButtonAction" text="Submit" />
                         <Label layoutX="14.0" layoutY="158.0" text="Unblock Account" />
-                        <Button layoutX="49.0" layoutY="242.0" mnemonicParsing="false" text="Submit" />
-                        <JFXRadioButton layoutX="-3.0" layoutY="182.0" text="SeniorLB" toggleGroup="$tog2" />
-                        <JFXRadioButton layoutX="-3.0" layoutY="215.0" text="JuniorLB" toggleGroup="$tog2" />
-                        <JFXRadioButton layoutY="93.0" text="JuniorLB" toggleGroup="$tog2" />
+                        <Button layoutX="49.0" layoutY="242.0" mnemonicParsing="false" onAction="#lb_unblock_ButtonAction" text="Submit" />
+                        <JFXRadioButton fx:id="seniorLb_unblock_tog" layoutX="-3.0" layoutY="182.0" text="SeniorLB" toggleGroup="$radio1" />
+                        <JFXRadioButton fx:id="juniorLb_unblock_tog" layoutX="-3.0" layoutY="215.0" text="JuniorLB" toggleGroup="$radio1" />
+                        <JFXRadioButton fx:id="juniorLb_block_tog" layoutY="93.0" text="JuniorLB" toggleGroup="$radio1" />
                         <Label layoutX="152.0" layoutY="36.0" text="LIbrarian Account Status" />
                         <Label layoutX="139.0" layoutY="64.0" text="SeniorLB Account:" />
-                        <Label layoutX="242.0" layoutY="66.0" prefHeight="17.0" prefWidth="45.0" />
-                        <Label layoutX="241.0" layoutY="90.0" prefHeight="17.0" prefWidth="51.0" />
+                        <Label fx:id="seniorLb_acc_status_lab" layoutX="242.0" layoutY="66.0" prefHeight="17.0" prefWidth="45.0" />
+                        <Label fx:id="juniorLb_acc_status_lab" layoutX="241.0" layoutY="89.0" prefHeight="17.0" prefWidth="51.0" />
                         <Label layoutX="142.0" layoutY="88.0" text="JuniorLB Account:" />
                      </children>
                   </Pane>

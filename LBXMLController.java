@@ -625,14 +625,124 @@ public class LBXMLController implements Initializable {
     @FXML
     private Pane set_u_p_lb_pane;
     
+    @FXML
+    private Label juniorLb_acc_status_lab;
+    
+    @FXML
+    private Label seniorLb_acc_status_lab;
+    
     
      @FXML
     void block_lb_ButtonAction(ActionEvent event) {
         lb_block_acc_pane.setVisible(true);
         view_lb_p_u_pane.setVisible(false);
         set_u_p_lb_pane.setVisible(false);
+       try{
+        if(!slb1.getLib_block_status()){
+            seniorLb_acc_status_lab.setText("Unblock");
+            
+        }
+        else{
+            seniorLb_acc_status_lab.setText("Blocked");
+        }
+        if(!jlb1.getLib_block_status()){
+           juniorLb_acc_status_lab.setText("Unblock");
+        }
+        else{
+            juniorLb_acc_status_lab.setText("Blocked");
+        }
+        
+       } catch(Exception e){
+           
+           System.out.println(e);
+       }
 
     }
+    @FXML
+    private JFXRadioButton seniorLb_block_tog;
+    @FXML
+    private JFXRadioButton juniorLb_block_tog;
+    @FXML
+    private JFXRadioButton seniorLb_unblock_tog;
+    @FXML
+    private JFXRadioButton juniorLb_unblock_tog;
+    
+    @FXML
+    void lb_block_ButtonAction(ActionEvent event){
+        try{
+        if(seniorLb_block_tog.isSelected()){
+            slb1.setLib_block_status(true);
+            
+        }
+        else if(juniorLb_block_tog.isSelected()){
+            jlb1.setLib_block_status(true);
+        }
+        else{
+            System.out.println("sorry not selected");
+        }
+        
+        } catch(Exception e){
+            System.out.println(e);
+        }
+        
+        
+        try{
+        if(!slb1.getLib_block_status()){
+            seniorLb_acc_status_lab.setText("Unblock");
+            
+        }
+        else{
+            seniorLb_acc_status_lab.setText("Blocked");
+        }
+        if(!jlb1.getLib_block_status()){
+           juniorLb_acc_status_lab.setText("Unblock");
+        }
+        else{
+            juniorLb_acc_status_lab.setText("Blocked");
+        }
+        
+       } catch(Exception e){
+           
+           System.out.println(e);
+       }
+        
+    }
+    
+    @FXML
+    void lb_unblock_ButtonAction(ActionEvent event){
+        if(seniorLb_unblock_tog.isSelected()){
+            slb1.setLib_block_status(false);
+            
+        }
+        else if(juniorLb_unblock_tog.isSelected()){
+            jlb1.setLib_block_status(false);
+        }
+        else{
+            System.out.println("sorry not selected");
+        }
+        
+        try{
+        if(!slb1.getLib_block_status()){
+            seniorLb_acc_status_lab.setText("Unblock");
+            
+        }
+        else{
+            seniorLb_acc_status_lab.setText("Blocked");
+        }
+        if(!jlb1.getLib_block_status()){
+           juniorLb_acc_status_lab.setText("Unblock");
+        }
+        else{
+            juniorLb_acc_status_lab.setText("Blocked");
+        }
+        
+       } catch(Exception e){
+           
+           System.out.println(e);
+       }
+        
+    }
+    
     @FXML
     private Label slb_u_view_lab;
     
