@@ -155,11 +155,11 @@
       </AnchorPane>
       <AnchorPane fx:id="librarianNavigation" layoutX="258.0" layoutY="170.0" prefHeight="294.0" prefWidth="462.0" style="-fx-background-color: #f46542; -fx-border-color: gray;" visible="false">
          <children>
-            <TextField layoutX="230.0" layoutY="103.0" prefHeight="25.0" prefWidth="220.0" />
+            <TextField fx:id="lib_username_field" layoutX="230.0" layoutY="103.0" prefHeight="25.0" prefWidth="220.0" />
             <Label layoutX="231.0" layoutY="79.0" text="User Name" />
             <Label layoutX="231.0" layoutY="138.0" text="Pasword" />
             <JFXButton layoutX="353.0" layoutY="208.0" onAction="#librarianLoginAction" prefHeight="25.0" prefWidth="97.0" style="-fx-border-color: white;" text="Login" textAlignment="CENTER" textFill="#1f5b1f" />
-            <Label layoutX="230.0" layoutY="252.0" prefHeight="40.0" prefWidth="229.0" text="Alarm!!! User name in not acceptable." textFill="#ee0712">
+            <Label fx:id="lib_login_alarm_lab" layoutX="230.0" layoutY="252.0" prefHeight="40.0" prefWidth="229.0" textFill="#3107ed">
                <font>
                   <Font size="13.0" />
                </font>
@@ -179,7 +179,7 @@
                   <Image url="@lib2.jpg" />
                </image>
             </ImageView>
-            <PasswordField layoutX="231.0" layoutY="166.0" prefHeight="25.0" prefWidth="220.0" />
+            <PasswordField fx:id="lib_password_field" layoutX="231.0" layoutY="166.0" prefHeight="25.0" prefWidth="220.0" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="librarianafterloginancorepane" layoutX="241.0" layoutY="138.0" prefHeight="365.0" prefWidth="484.0" style="-fx-background-color: #a53b30;" visible="false">

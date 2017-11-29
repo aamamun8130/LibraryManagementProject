@@ -342,8 +342,11 @@ public class LBXMLController implements Initializable {
     void act2(MouseEvent event) {
         
         if(event.getSource()==librarianNavigationExit){
+            slb = 0;
+            jlb = 0;
             librarianNavigation.setVisible(false);
             login=false;
+             lib_login_alarm_lab.setText("");
         }
         else if(event.getSource()==lib_neg_exit){
             lib_neg_lab.setVisible(false);
@@ -370,28 +373,65 @@ public class LBXMLController implements Initializable {
        }
     }
     
+    int jlb = 0;
+    int slb = 0;
+    
     @FXML
     void seniorLibButtonAction(ActionEvent event){
+        slb = 1;
         librarianNavigation.setVisible(true);
         lib_neg_lab.setVisible(false);
     }
     
     @FXML
     void juniorLibButtonAction(ActionEvent event){
+        jlb = 1;
         librarianNavigation.setVisible(true);
         lib_neg_lab.setVisible(false);
     }
+    @FXML
+    private TextField lib_username_field;
+
+    @FXML
+    private PasswordField lib_password_field;
+    
+    @FXML
+    private Label lib_login_alarm_lab;
     
     
     @FXML
     void librarianLoginAction(ActionEvent event) {
-        librarianafterloginancorepane.setVisible(true);
-         librarianNavigation.setVisible(false);
+        try{
+        if(slb == 1 && !slb1.getLib_block_status() && lib_username_field.getText().equals(slb1.getLib_u_name()) && lib_password_field.getText().equals(slb1.getLib_p_word())){
+            librarianafterloginancorepane.setVisible(true);
+            librarianNavigation.setVisible(false);
+             lib_login_alarm_lab.setText("");
+        }
+        else if(jlb ==1 && !jlb1.getLib_block_status() && lib_username_field.getText().equals(jlb1.getLib_u_name()) && lib_password_field.getText().equals(jlb1.getLib_p_word())){
+            librarianafterloginancorepane.setVisible(true);
+            librarianNavigation.setVisible(false);
+            lib_login_alarm_lab.setText("");
+        }
+        else if(slb == 1 && slb1.getLib_block_status()){
+            lib_login_alarm_lab.setText("Account Blocked!!!");
+        }
+        else if(jlb == 1 && jlb1.getLib_block_status()){
+            lib_login_alarm_lab.setText("Account Blocked");
+            
+        }
+        else{
+            lib_login_alarm_lab.setText("Wrong Entry! Try again!!!");
+        }
         
+        } catch(Exception e){
+            lib_login_alarm_lab.setText("Something wrong! Try again!!!");
+        }
     }
     
     @FXML
     void librarianLogoutButtonAction(ActionEvent event) {
+        slb = 0;
+        jlb = 0;
     librarianafterloginancorepane.setVisible(false);
     studentinfopane.setVisible(false);
     borrowbookpane.setVisible(false);
