@@ -132,13 +132,22 @@
             <AnchorPane fx:id="bookSearchpane" layoutX="7.0" layoutY="58.0" prefHeight="297.0" prefWidth="470.0" visible="false">
                <children>
                   <Label layoutX="26.0" layoutY="39.0" prefHeight="25.0" prefWidth="93.0" text="Enter Book Name" />
-                  <TextField layoutX="26.0" layoutY="71.0" prefHeight="25.0" prefWidth="169.0" />
-                  <JFXButton layoutX="119.0" layoutY="112.0" prefHeight="27.0" prefWidth="76.0" style="-fx-border-color: white;" text="Search" />
+                  <TextField fx:id="searchBookFeild" layoutX="26.0" layoutY="71.0" prefHeight="25.0" prefWidth="169.0" />
+                  <JFXButton layoutX="119.0" layoutY="112.0" onAction="#searchBookButtonAction" prefHeight="27.0" prefWidth="76.0" style="-fx-border-color: white;" text="Search" />
                   <AnchorPane layoutX="215.0" layoutY="3.0" prefHeight="288.0" prefWidth="241.0" style="-fx-background-color: #f7ae9b; -fx-border-color: white;">
                      <children>
                         <Label layoutX="34.0" layoutY="21.0" prefHeight="25.0" prefWidth="179.0" style="-fx-background-color: white;" text="            Searching Result" />
+                        <Label layoutX="18.0" layoutY="78.0" prefHeight="25.0" prefWidth="76.0" text="B_Name     :" />
                      </children>
                   </AnchorPane>
+                  <Label layoutX="229.0" layoutY="124.0" prefHeight="25.0" prefWidth="76.0" text="Book Type   :" />
+                  <Label layoutX="229.0" layoutY="165.0" prefHeight="25.0" prefWidth="76.0" text="B_id              :" />
+                  <Label fx:id="searchBookNoti_lab" layoutX="15.0" layoutY="200.0" prefHeight="25.0" prefWidth="179.0" />
+                  <Label layoutX="230.0" layoutY="207.0" prefHeight="25.0" prefWidth="75.0" text="Book Self No:" />
+                  <Label fx:id="book_n_lab" layoutX="300.0" layoutY="83.0" prefHeight="25.0" prefWidth="152.0" />
+                  <Label fx:id="book_i_lab" layoutX="303.0" layoutY="167.0" prefHeight="25.0" prefWidth="142.0" />
+                  <Label fx:id="book_t_lab" layoutX="300.0" layoutY="125.0" prefHeight="25.0" prefWidth="152.0" />
+                  <Label fx:id="book_sno_lab" layoutX="307.0" layoutY="209.0" prefHeight="25.0" prefWidth="139.0" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="yourlibinfo" layoutX="14.0" layoutY="58.0" prefHeight="297.0" prefWidth="470.0" visible="false">

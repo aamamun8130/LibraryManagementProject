@@ -3,6 +3,7 @@ package librarymanagement;
 
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.ObservableList;
 
 public class Student {
     private SimpleStringProperty std_username;
@@ -32,6 +33,13 @@ public class Student {
     
     public Integer getDue() {
         return due.get();
+    }
+    
+    public void canSearchBook(ObservableList<Book> bookLst ){
+        for(Book blist : bookLst){
+            
+        }
+        
     }
     
     

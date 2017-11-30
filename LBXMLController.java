@@ -67,6 +67,8 @@ public class LBXMLController implements Initializable {
         log_p_word_Id.setText("");
         log_u_name_Id.setText("");
     }
+    ForeigenStudent fstd;
+    LocalStudent lstd;
     int loc_std = 0;
     int fore_std = 0;
     ObservableList<Student>stdList = FXCollections.observableArrayList();
@@ -79,11 +81,13 @@ public class LBXMLController implements Initializable {
         else{
            reg_warning.setText("Submission Successful");
            if(fore_std==1){
-                stdList.add(new ForeigenStudent(st_uname.getText(),st_pass.getText(),"foreigen"));
+               fstd = new ForeigenStudent(st_uname.getText(),st_pass.getText(),"foreigen");
+                stdList.add(fstd);
                
            }
            if(loc_std==1){
-               stdList.add( new LocalStudent(st_uname.getText(),st_pass.getText(),"local"));
+                lstd = new LocalStudent(st_uname.getText(),st_pass.getText(),"local");
+               stdList.add(lstd);
            }
            clearCreateAccountField();
         }
@@ -204,6 +208,7 @@ public class LBXMLController implements Initializable {
             studentNavigation.setVisible(false);
             std_typer.setVisible(false);
             clearLoginField();
+         
             login = true;
             enp_sList = 1;
          }
@@ -327,6 +332,54 @@ public class LBXMLController implements Initializable {
 
     }
     
+    @FXML
+    private Label searchBookNoti_lab;
+    
+    @FXML
+    private Label book_t_lab;
+    @FXML
+    private Label book_n_lab;
+    @FXML
+    private Label book_i_lab;
+    
+    @FXML
+    private Label book_sno_lab;
+    
+    @FXML
+    private TextField searchBookFeild;
+    
+    int enpt_BookListIdentifier = 0;
+    
+    
+    @FXML
+    void searchBookButtonAction(ActionEvent event){
+        
+        for(Book bk : BookList){
+            enpt_BookListIdentifier = 1;
+        if(searchBookFeild.getText().equals(bk.getBookname())){
+            book_n_lab.setText(bk.getBookname());
+            book_t_lab.setText(bk.getBooktype());
+            book_i_lab.setText(bk.getBookid());
+            book_sno_lab.setText("none");
+            searchBookNoti_lab.setText("Book Found!");
+            
+        }
+        else{
+           searchBookNoti_lab.setText("Book Not Found!");
+        }
+        
+        }
+        
+        if(enpt_BookListIdentifier == 0){
+            searchBookNoti_lab.setText("No Book List Found!");
+        }
+        
+    }
+    
+    
+            
+            
+           
 
     // student design control end................end
     
@@ -400,9 +453,11 @@ public class LBXMLController implements Initializable {
     @FXML
     private Label book_include_noti_lab;
     
+    ObservableList<Book>BookList = FXCollections.observableArrayList();
+    
     @FXML
     void bookAddButtonAction(ActionEvent event){
-        jlb1.canAddBook(e_b_nameFeild.getText(), e_b_idFeild.getText(), e_b_typeFeild.getText(), Integer.parseInt(e_b_selfnoFeild.getText()));
+        jlb1.canAddBook(BookList,e_b_nameFeild.getText(), e_b_idFeild.getText(), e_b_typeFeild.getText(), Integer.parseInt(e_b_selfnoFeild.getText()));
         book_include_noti_lab.setText("Adding Book Successful!!!");
     }
     
@@ -888,8 +943,6 @@ public class LBXMLController implements Initializable {
         
 
     }
-
-    
     
     
     
