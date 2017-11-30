@@ -3,13 +3,15 @@ package librarymanagement;
 
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Student {
     private SimpleStringProperty std_username;
     private String std_password;
     private String std_type;
-    private SimpleIntegerProperty due;
+    StdLibraryInfo slbinfo;
+    
     
     //Constuctor
     public Student(String std_username,String std_password,String std_type){
@@ -17,6 +19,9 @@ public class Student {
         this.std_username = new SimpleStringProperty(std_username);
         this.std_type = std_type;
     }
+
+       
+    
     String getSTD_TYPE(){
         return std_type;
     }
@@ -31,14 +36,16 @@ public class Student {
         return std_username.get();
     }
     
-    public Integer getDue() {
-        return due.get();
-    }
-    
+       
     public void canSearchBook(ObservableList<Book> bookLst ){
         for(Book blist : bookLst){
             
         }
+        
+    }
+    
+    public void stdLibInfoSet(String stdbookname, String stdbooksubdate){
+       slbinfo = new StdLibraryInfo(stdbookname,stdbooksubdate); 
         
     }
     

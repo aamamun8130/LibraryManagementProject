@@ -198,8 +198,8 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <TextField layoutX="121.0" layoutY="21.0" prefHeight="25.0" prefWidth="193.0" />
-            <JFXButton layoutX="338.0" layoutY="21.0" style="-fx-background-color: #fc8d5d;" text="Search" />
+            <TextField fx:id="jlbsearchstdusernameField" layoutX="121.0" layoutY="21.0" onAction="#std_uname_sreh_FieldButtonAction" prefHeight="25.0" prefWidth="193.0" />
+            <JFXButton layoutX="338.0" layoutY="21.0" onAction="#jlbsearchButtonAction" style="-fx-background-color: #fc8d5d;" text="Search" />
             <JFXButton layoutX="409.0" layoutY="21.0" onAction="#librarianLogoutButtonAction" style="-fx-background-color: #fc8d5d;" text="Log Out" />
             <AnchorPane layoutY="93.0" opacity="0.68" prefHeight="265.0" prefWidth="179.0" style="-fx-background-color: #fc8d5d;">
                <children>
@@ -230,9 +230,18 @@
                   <Label layoutX="14.0" layoutY="27.0" prefHeight="17.0" prefWidth="93.0" text="Student info" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="borrowbookpane" layoutX="190.0" layoutY="93.0" prefHeight="265.0" prefWidth="290.0" style="-fx-background-color: #fc8d5d;" visible="false">
+            <AnchorPane fx:id="borrowbookpane" layoutX="190.0" layoutY="93.0" prefHeight="265.0" prefWidth="290.0" style="-fx-background-color: #fc8d5d;">
                <children>
-                  <Label layoutX="22.0" layoutY="27.0" text="borrow book" />
+                  <TextField fx:id="borrowbookFeild" layoutX="109.0" layoutY="34.0" />
+                  <Label layoutX="12.0" layoutY="36.0" text="Enter Book Id" />
+                  <Button layoutX="203.0" layoutY="133.0" mnemonicParsing="false" onAction="#borrow_b_ButtonAction" prefHeight="25.0" prefWidth="56.0" text="ADD" />
+                  <Label fx:id="borrow_b_noti_lab" layoutX="41.0" layoutY="194.0" prefHeight="17.0" prefWidth="220.0" textFill="#ed0707">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="13.0" layoutY="83.0" text="Enter Sub Date" />
+                  <TextField fx:id="setbooksubmissionField" layoutX="110.0" layoutY="78.0" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="submissionbookpane" layoutX="190.0" layoutY="93.0" prefHeight="265.0" prefWidth="290.0" style="-fx-background-color: #fc8d5d;" visible="false">
@@ -258,6 +267,11 @@
                   <Label layoutX="11.0" layoutY="70.0" text="Enter Book Type" />
                </children>
             </AnchorPane>
+            <Label fx:id="jlbstdsearrchnoti_lab" layoutX="120.0" layoutY="57.0" prefHeight="17.0" prefWidth="191.0" textFill="#280cfa">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="accountantNavigation" layoutX="281.0" layoutY="176.0" prefHeight="288.0" prefWidth="403.0" style="-fx-background-color: #911e01;" visible="false">

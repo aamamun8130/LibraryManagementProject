@@ -562,6 +562,81 @@ public class LBXMLController implements Initializable {
         submissionbookpane.setVisible(false);
         settingpane.setVisible(true);
     }
+    @FXML
+    private Label borrow_b_noti_lab;
+    @FXML
+    private TextField borrowbookFeild;
+    
+    @FXML
+    private TextField setbooksubmissionField;
+    
+    @FXML
+    private TextField jlbsearchstdusernameField;
+    
+    int hh;
+    
+    @FXML
+    void borrow_b_ButtonAction(ActionEvent event){
+        
+      for(Student sl : stdList){
+          if(jlbsearchstdusernameField.getText().equals(sl.getSTD_USERNAME()) && sl.getSTD_TYPE().equals("local")){
+              lstd.stdLibInfoSet(borrowbookFeild.getText(), setbooksubmissionField.getText());
+              borrow_b_noti_lab.setText("Add Successful!!");
+              hh=1;
+          }
+          
+          else if(jlbsearchstdusernameField.getText().equals(sl.getSTD_USERNAME()) && sl.getSTD_TYPE().equals("foreigen")){
+              fstd.stdLibInfoSet(borrowbookFeild.getText(), setbooksubmissionField.getText());
+              borrow_b_noti_lab.setText("Add Successful!!");
+              hh=1;
+          }
+          
+      }
+      
+      if(hh==0){
+         borrow_b_noti_lab.setText("Add Not Successful!!"); 
+      }
+        
+        
+    }
+    
+    @FXML
+    private Label jlbstdsearrchnoti_lab;
+    
+    int ff;
+     @FXML
+    void std_uname_sreh_FieldButtonAction(ActionEvent event) {
+        jlbstdsearrchnoti_lab.setText("");
+        ff = 0;
+
+    }
+    int gg = 1;
+    @FXML
+    void jlbsearchButtonAction(ActionEvent event){
+        for(Student liststd : stdList){
+        if(jlbsearchstdusernameField.getText().equals(liststd.getSTD_USERNAME()) && liststd.getSTD_TYPE().equals("local")){
+           jlbstdsearrchnoti_lab.setText("Account Found!!!");
+           ff = 1;
+           gg = 0;
+         
+        }
+        else if(jlbsearchstdusernameField.getText().equals(liststd.getSTD_USERNAME()) && liststd.getSTD_TYPE().equals("foreigen")){
+            jlbstdsearrchnoti_lab.setText("Account Found!!!");
+          ff = 1;
+          gg = 0;
+            
+        }
+        
+        }
+        
+        if(ff==0){
+            jlbstdsearrchnoti_lab.setText("Account Not Found!!!");
+        }
+        else{
+           ff = 0;
+        }
+    }
+    
     
       // librarian design control ..........end 
     
