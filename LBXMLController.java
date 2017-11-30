@@ -532,11 +532,47 @@ public class LBXMLController implements Initializable {
     private AnchorPane settingpane;
     
     @FXML
+    private Label s_u_name_lab;
+    @FXML
+    private Label s_u_pass_lab;
+    @FXML
+    private Label s_u_type_lab;
+    @FXML
+    private Label s_u_borrbook_lab;
+    @FXML
+    private Label s_u_subdatebook_lab;
+    @FXML
+    private Label s_u_fine_lab;
+    
+    @FXML
     void studentinfoButtonAction(ActionEvent event) {
         studentinfopane.setVisible(true);
         borrowbookpane.setVisible(false);
         submissionbookpane.setVisible(false);
         settingpane.setVisible(false);
+        
+        for(Student liststd : stdList){
+        if(jlbsearchstdusernameField.getText().equals(liststd.getSTD_USERNAME()) && liststd.getSTD_TYPE().equals("local")){
+         s_u_name_lab.setText(liststd.getSTD_USERNAME());
+         s_u_pass_lab.setText(liststd.getSTD_PASSWORD());
+         s_u_type_lab.setText(liststd.getSTD_TYPE());
+         s_u_borrbook_lab.setText(liststd.slbinfo.getStdbookname());
+         s_u_subdatebook_lab.setText(liststd.slbinfo.getStdbooksubdate());
+         s_u_fine_lab.setText("null");
+        }
+        else if(jlbsearchstdusernameField.getText().equals(liststd.getSTD_USERNAME()) && liststd.getSTD_TYPE().equals("foreigen")){
+         s_u_name_lab.setText(liststd.getSTD_USERNAME());
+         s_u_pass_lab.setText(liststd.getSTD_PASSWORD());
+         s_u_type_lab.setText(liststd.getSTD_TYPE());
+         s_u_borrbook_lab.setText(liststd.slbinfo.getStdbookname());
+         s_u_subdatebook_lab.setText(liststd.slbinfo.getStdbooksubdate());
+         s_u_fine_lab.setText("null");
+            
+        }
+        
+        }
+        
+        
     }
     @FXML
     void borrowbookButtonAction(ActionEvent event) {
@@ -574,21 +610,54 @@ public class LBXMLController implements Initializable {
     private TextField jlbsearchstdusernameField;
     
     int hh;
+    int ll = 0;
     
     @FXML
     void borrow_b_ButtonAction(ActionEvent event){
         
       for(Student sl : stdList){
           if(jlbsearchstdusernameField.getText().equals(sl.getSTD_USERNAME()) && sl.getSTD_TYPE().equals("local")){
-              lstd.stdLibInfoSet(borrowbookFeild.getText(), setbooksubmissionField.getText());
-              borrow_b_noti_lab.setText("Add Successful!!");
+              for(Book bk :BookList){
+                  if(bk.getBookid().equals(borrowbookFeild.getText())){
+                  sl.slbinfo.setStdbookname(bk.getBookname());
+                  sl.slbinfo.setStdbooksubdate(setbooksubmissionField.getText());
+                  borrow_b_noti_lab.setText("Lent successful!!!");
+                  ll = 1;
+                  }
+              }
+              
               hh=1;
+              if(ll == 0){
+                  borrow_b_noti_lab.setText("BookId Not Found!");
+              }
+              else
+              {
+                 ll=0; 
+              }
+              
           }
           
           else if(jlbsearchstdusernameField.getText().equals(sl.getSTD_USERNAME()) && sl.getSTD_TYPE().equals("foreigen")){
-              fstd.stdLibInfoSet(borrowbookFeild.getText(), setbooksubmissionField.getText());
-              borrow_b_noti_lab.setText("Add Successful!!");
+              
+              for(Book bk :BookList){
+                  if(bk.getBookid().equals(borrowbookFeild.getText())){
+                    sl.slbinfo.setStdbookname(bk.getBookname());
+                  sl.slbinfo.setStdbooksubdate(setbooksubmissionField.getText());
+                  borrow_b_noti_lab.setText("Lent successful!!!");
+                  ll = 1;  
+                  }
+                  
+              }
+              
               hh=1;
+              
+              if(ll == 0){
+                  borrow_b_noti_lab.setText("BookId Not Found!");
+              }
+              else
+              {
+                 ll=0; 
+              }
           }
           
       }

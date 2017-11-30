@@ -14,10 +14,11 @@ public class Student {
     
     
     //Constuctor
-    public Student(String std_username,String std_password,String std_type){
+    public Student(String std_username,String std_password,String std_type, String p, String q){
         this.std_password = std_password;
         this.std_username = new SimpleStringProperty(std_username);
         this.std_type = std_type;
+        slbinfo = new StdLibraryInfo(p,q);
     }
 
        
@@ -44,10 +45,7 @@ public class Student {
         
     }
     
-    public void stdLibInfoSet(String stdbookname, String stdbooksubdate){
-       slbinfo = new StdLibraryInfo(stdbookname,stdbooksubdate); 
-        
-    }
+   
     
     
 }
