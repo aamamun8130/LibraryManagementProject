@@ -196,6 +196,27 @@ public class LBXMLController implements Initializable {
        @FXML
     private Label login_alarm;
        int enp_sList;
+       
+       String std_uname;
+       String std_ubooksubdate;
+       String std_bname;
+       double std_fine ;
+       String std_typ;
+       
+       
+       
+     void assignStdInfo(Student std){
+       std_uname = std.getSTD_USERNAME();
+       std_ubooksubdate = std.slbinfo.getStdbooksubdate();
+       std_bname = std.slbinfo.getStdbookname();
+       std_fine = std.slbinfo.getStddue();
+       std_typ = std.getSTD_TYPE(); 
+     }
+     
+     @FXML
+     private Label stypelab;
+       
+       
     
     @FXML
     void loginButton2Action(ActionEvent event) {
@@ -208,9 +229,11 @@ public class LBXMLController implements Initializable {
             studentNavigation.setVisible(false);
             std_typer.setVisible(false);
             clearLoginField();
-         
+            stypelab.setText("foreigen");
             login = true;
             enp_sList = 1;
+            
+            assignStdInfo(std);     // asssign std info function calll
          }
          else  if (loc_std==1 && std.getSTD_TYPE().equals("local") && std.getSTD_USERNAME().equals(log_u_name_Id.getText()) && std.getSTD_PASSWORD().equals(log_p_word_Id.getText()) ){
                  plate.setVisible(true);
@@ -221,6 +244,8 @@ public class LBXMLController implements Initializable {
             clearLoginField();
             login = true;
             enp_sList = 1;
+            stypelab.setText("local");
+            assignStdInfo(std);       // asssign std info function calll
            }
          
          else{
@@ -244,7 +269,7 @@ public class LBXMLController implements Initializable {
         selmover.setLayoutX(30.0);
         bookSearchpane.setVisible(true);
         yourlibinfo.setVisible(false);
-        finelab.setVisible(false);
+        stdfinePane.setVisible(false);
     }
     
     @FXML
@@ -261,9 +286,6 @@ public class LBXMLController implements Initializable {
     
     @FXML
     private AnchorPane yourlibinfo;
-
-    @FXML
-    private AnchorPane finelab;
     
     @FXML
     private Label stdxlab1;
@@ -273,7 +295,36 @@ public class LBXMLController implements Initializable {
             
     @FXML
     private Label stdxlab3;
-               
+    
+    @FXML
+    private Label student_t_lab;
+    
+    @FXML
+    private Label local_currency_lab;
+    
+    @FXML
+    private Label doller_currency_lab;
+    
+    @FXML
+    private Label eueo_currency_lab;
+    
+    @FXML
+    private Pane stdfinePane;
+   //std lb info pane info
+    
+    @FXML
+    private Label stdLbInfo_u_name_lab;
+    
+    @FXML
+    private Label stdLbInfo_u_b_name_lab1;
+    
+    @FXML
+    private Label stdLbInfo_u_b_subDate_lab11;
+     
+             
+             
+   //end
+    
     
     @FXML
     void act1(MouseEvent event) {
@@ -282,7 +333,7 @@ public class LBXMLController implements Initializable {
         selmover.setLayoutX(30.0);
         bookSearchpane.setVisible(true);
         yourlibinfo.setVisible(false);
-        finelab.setVisible(false);
+        stdfinePane.setVisible(false);
         
         }
         else if(event.getSource() == lab2){
@@ -290,14 +341,22 @@ public class LBXMLController implements Initializable {
         selmover.setLayoutX(154.0);
         yourlibinfo.setVisible(true);
         bookSearchpane.setVisible(false);
-         finelab.setVisible(false);
+         stdfinePane.setVisible(false);
+         stdLbInfo_u_name_lab.setText(std_uname);
+         stdLbInfo_u_b_name_lab1.setText(std_bname);                     ///very inportant area lib info std
+         stdLbInfo_u_b_subDate_lab11.setText(std_ubooksubdate);
         }
         else if(event.getSource() == lab3){
         selmover.setVisible(true);
         selmover.setLayoutX(270.0);
-        finelab.setVisible(true);
+        stdfinePane.setVisible(true);
         yourlibinfo.setVisible(false);
         bookSearchpane.setVisible(false);
+        student_t_lab.setText(std_typ);
+        local_currency_lab.setText(Double.toString(std_fine) + " BDT");
+        doller_currency_lab.setText("null" + " $");
+        eueo_currency_lab.setText("Null" + " EURO");
+        
         }
         else if(event.getSource() == stdxlab1){
             fore_std = 0;
@@ -377,6 +436,7 @@ public class LBXMLController implements Initializable {
     }
     
     
+        
             
             
            
