@@ -857,6 +857,7 @@ public class LBXMLController implements Initializable {
         if(!login){
              accountantNavigation.setVisible(true);
              login=true;
+             acc_login_noti_lab.setText("");
         }
 
     }
@@ -914,11 +915,23 @@ public class LBXMLController implements Initializable {
     @FXML
     private AnchorPane accountantafterloginpane;
     
+    @FXML
+    private Label acc_login_noti_lab;
+    @FXML
+    private TextField acc_usernamefield;
+    @FXML
+    private TextField acc_passwordfield;
     
     @FXML
     void accountantLoginButtonAction(ActionEvent event) {
+        
+        if(acc_usernamefield.getText().equals(acant.getAcc_name()) && acc_passwordfield.getText().equals(acant.getAcc_pass()) ){
        accountantNavigation.setVisible(false); 
      accountantafterloginpane.setVisible(true);
+        }
+        else{
+            acc_login_noti_lab.setText("Wrong Entry!!!");
+        }
     }
     
     @FXML
@@ -997,7 +1010,11 @@ public class LBXMLController implements Initializable {
     @FXML
     void authorityLogoutButtonAction(ActionEvent event) {
     authorityNavigation.setVisible(false);
+    acc_u_p_set_pane.setVisible(false);
+    acc_noti_lab.setText("");
+    
     login=false;
+    
     }
     
     @FXML
@@ -1264,6 +1281,32 @@ public class LBXMLController implements Initializable {
     
     
         //LB_setting ontrol end here
+    
+    
+    @FXML
+    private Label acc_noti_lab;
+
+    @FXML
+    private TextField set_acc_usernamefield;
+    @FXML
+    private TextField set_acc_passfield;
+    
+    @FXML
+    private Pane acc_u_p_set_pane;
+    
+    Accountant acant;
+    
+    @FXML
+    void adminsetacc_u_pButtonAction(ActionEvent event){
+       acant = new Accountant(set_acc_usernamefield.getText(),set_acc_passfield.getText());
+       acc_noti_lab.setText("Set Sucessful!!");
+    }
+    
+    @FXML
+    void accetting_u_p_Buttonaction(ActionEvent event){
+        acc_u_p_set_pane.setVisible(true);
+
+    }
     
     
       // Authority design control ..........end 
