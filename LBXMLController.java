@@ -544,12 +544,15 @@ public class LBXMLController implements Initializable {
     @FXML
     private Label s_u_fine_lab;
     
+    int found = 0;
+    
     @FXML
     void studentinfoButtonAction(ActionEvent event) {
         studentinfopane.setVisible(true);
         borrowbookpane.setVisible(false);
         submissionbookpane.setVisible(false);
         settingpane.setVisible(false);
+        found = 0;
         
         for(Student liststd : stdList){
         if(jlbsearchstdusernameField.getText().equals(liststd.getSTD_USERNAME()) && liststd.getSTD_TYPE().equals("local")){
@@ -588,6 +591,23 @@ public class LBXMLController implements Initializable {
         borrowbookpane.setVisible(false);
         submissionbookpane.setVisible(true);
         settingpane.setVisible(false);
+        bookSubmNotiLab.setText("");
+       
+        for(Student liststd : stdList){
+        if(jlbsearchstdusernameField.getText().equals(liststd.getSTD_USERNAME()) && liststd.getSTD_TYPE().equals("local")){
+
+         subboookname_lab.setText(liststd.slbinfo.getStdbookname());
+         subboookid_lab.setText(liststd.slbinfo.getStdbooksubdate());
+         
+        }
+        else if(jlbsearchstdusernameField.getText().equals(liststd.getSTD_USERNAME()) && liststd.getSTD_TYPE().equals("foreigen")){
+         subboookname_lab.setText(liststd.slbinfo.getStdbookname());
+         subboookid_lab.setText(liststd.slbinfo.getStdbooksubdate());
+         
+            
+        }
+        
+        }
     }
     
     
@@ -704,6 +724,48 @@ public class LBXMLController implements Initializable {
         else{
            ff = 0;
         }
+    }
+    @FXML
+    private Label subboookname_lab;
+    
+    @FXML
+    private Label subboookid_lab;
+    
+    @FXML
+    private Label bookSubmNotiLab;
+    
+    
+    @FXML
+    void clrstdbookhisButtonAction(ActionEvent event){
+       
+        for(Student liststd : stdList){
+            
+        if(jlbsearchstdusernameField.getText().equals(liststd.getSTD_USERNAME()) && liststd.getSTD_TYPE().equals("local")){
+
+         subboookname_lab.setText("Clear");
+         subboookid_lab.setText("Clear");
+         liststd.slbinfo.setStdbookname("NULL");
+         liststd.slbinfo.setStdbooksubdate("NULL");
+         bookSubmNotiLab.setText("History Clear!!!");
+         found = 1;
+        }
+        else if(jlbsearchstdusernameField.getText().equals(liststd.getSTD_USERNAME()) && liststd.getSTD_TYPE().equals("foreigen")){
+         subboookname_lab.setText("Clear");
+         subboookid_lab.setText("Clear");
+         liststd.slbinfo.setStdbookname("NULL");
+         liststd.slbinfo.setStdbooksubdate("NULL");
+          bookSubmNotiLab.setText("History Clear!!!");
+         found = 1;
+            
+        }
+        
+        
+        } 
+        
+        if(found==0){
+            bookSubmNotiLab.setText("UserName Not Found!!!");
+        }
+        
     }
     
     
@@ -1098,13 +1160,13 @@ public class LBXMLController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {
-            Connector();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(LBXMLController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(LBXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        for(Student stdl : stdList){
+            if("01/12/17".compareTo(stdl.slbinfo.getStdbooksubdate())<0 && "01/12/17".compareTo(stdl.slbinfo.getStdbooksubdate())> -21){
+                stdl.slbinfo.setStddue(500);
+                
+            }
         }
+       // System.out.println("30/10/17".compareTo("01/12/17"));
     }    
     
 }

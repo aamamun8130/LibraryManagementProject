@@ -12,7 +12,7 @@ package librarymanagement;
 public class StdLibraryInfo {
     private String stdbookname;
     private String stdbooksubdate;
-    private String stddue;
+    private double stddue;
 
     public StdLibraryInfo(String stdbookname, String stdbooksubdate) {
         this.stdbookname = stdbookname;
@@ -27,7 +27,7 @@ public class StdLibraryInfo {
         return stdbooksubdate;
     }
 
-    public String getStddue() {
+    public double getStddue() {
         return stddue;
     }
 
@@ -39,7 +39,7 @@ public class StdLibraryInfo {
         this.stdbooksubdate = stdbooksubdate;
     }
 
-    public void setStddue(String stddue) {
+    public void setStddue(double stddue) {
         this.stddue = stddue;
     }
     
