@@ -382,8 +382,8 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="144.0" layoutY="10.0" />
-            <JFXButton layoutX="317.0" layoutY="11.0" style="-fx-background-color: lightblue;" text="Search" />
+            <TextField fx:id="acc_u_n_field" layoutX="144.0" layoutY="10.0" />
+            <JFXButton layoutX="317.0" layoutY="11.0" onAction="#accSearchButtonAction" style="-fx-background-color: lightblue;" text="Search" />
             <JFXButton layoutX="388.0" layoutY="11.0" onAction="#accountantSignoutButtonAction" style="-fx-background-color: lightblue;" text="Signout" />
             <Pane layoutX="14.0" layoutY="45.0" prefHeight="3.0" prefWidth="462.0" style="-fx-background-color: #89021c;" />
             <Pane layoutX="9.0" layoutY="346.0" prefHeight="3.0" prefWidth="462.0" style="-fx-background-color: #89021c;" />
@@ -405,16 +405,27 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="20.0" layoutY="74.0" />
-                  <JFXButton layoutX="116.0" layoutY="120.0" style="-fx-background-color: white;" text="Submit" />
+                  <TextField fx:id="p_d_a_field" layoutX="20.0" layoutY="74.0" />
+                  <JFXButton layoutX="116.0" layoutY="120.0" onAction="#accsubButtonAction" style="-fx-background-color: white;" text="Submit" />
                   <Pane layoutX="6.0" layoutY="163.0" prefHeight="69.0" prefWidth="179.0" style="-fx-background-color: #cca7b0;">
                      <children>
-                        <Label layoutX="52.0" layoutY="26.0" text="Notification" />
+                        <Label fx:id="p_s_n_lab" layoutX="52.0" layoutY="26.0" text="Notification" />
                      </children>
                   </Pane>
                </children>
             </AnchorPane>
-            <Pane layoutX="232.0" layoutY="92.0" prefHeight="242.0" prefWidth="241.0" style="-fx-background-color: #915b68;" />
+            <Pane layoutX="232.0" layoutY="92.0" prefHeight="242.0" prefWidth="241.0" style="-fx-background-color: #915b68;">
+               <children>
+                  <Label layoutX="40.0" layoutY="46.0" text="Student Type:" />
+                  <Label layoutX="43.0" layoutY="76.0" text="Due:" />
+                  <Label layoutX="63.0" layoutY="121.0" text="Doller Currency:" />
+                  <Label layoutX="68.0" layoutY="148.0" text="Euro Currency:" />
+                  <Label layoutX="66.0" layoutY="93.0" text="Local Currenct:" />
+                  <Label fx:id="a_u_c_lab" layoutX="152.0" layoutY="149.0" prefHeight="17.0" prefWidth="87.0" />
+                  <Label fx:id="a_d_c_lab" layoutX="153.0" layoutY="121.0" prefHeight="17.0" prefWidth="87.0" />
+                  <Label fx:id="a_l_c_lab" layoutX="147.0" layoutY="95.0" prefHeight="17.0" prefWidth="87.0" />
+                  <Label fx:id="acc_std_typ" layoutX="126.0" layoutY="48.0" prefHeight="17.0" prefWidth="87.0" />
+               </children></Pane>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="authorityNavigation" layoutX="241.0" layoutY="138.0" prefHeight="365.0" prefWidth="484.0" style="-fx-background-color: #666699;" visible="false">

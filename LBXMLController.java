@@ -860,6 +860,56 @@ public class LBXMLController implements Initializable {
         }
 
     }
+    @FXML
+    private Label a_l_c_lab;
+    @FXML
+    private Label a_d_c_lab;
+    @FXML
+    private Label p_s_n_lab;
+    @FXML
+    private Label a_u_c_lab;
+    @FXML
+    private TextField acc_u_n_field;
+    @FXML
+    private TextField a__d_field;
+    @FXML
+    private Label acc_std_typ;
+    
+    int kk;
+    
+    @FXML
+    void accSearchButtonAction(ActionEvent event){
+        for(Student std : stdList){
+            if(std.getSTD_USERNAME().equals(acc_u_n_field.getText())){
+               p_s_n_lab.setText("User Found!!");
+                kk=1;
+                acc_std_typ.setText(std.getSTD_TYPE());
+                a_l_c_lab.setText(Double.toString(std.slbinfo.getStddue()) + " BDT");
+                
+            }
+            
+        } 
+        if(kk!=1){
+           p_s_n_lab.setText("User Not Found!!");  
+        }
+        else{
+            kk=0;
+        }
+          
+       }
+    @FXML
+    void accsubButtonAction(ActionEvent event){
+        
+        for(Student std : stdList){
+            if(std.getSTD_USERNAME().equals(acc_u_n_field.getText())){
+                 std.slbinfo.setStddue(0.0);
+                 p_s_n_lab.setText("Due Paid Sucessful");
+                
+            }
+            
+        } 
+        
+    }
     
     @FXML
     private AnchorPane accountantafterloginpane;
