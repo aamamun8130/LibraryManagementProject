@@ -22,6 +22,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -1307,7 +1309,45 @@ public class LBXMLController implements Initializable {
         acc_u_p_set_pane.setVisible(true);
 
     }
+      
     
+     @FXML
+    private TableView<?> StdCommentTable;
+
+    @FXML
+    private TableColumn<?, ?> CommentStdUserName;
+
+    @FXML
+    private TableColumn<?, ?> commentstdComment;
+
+    @FXML
+    void CommentStdListButtonAction(ActionEvent event) {
+
+    }
+    
+    @FXML
+    private TableView<?> finestdtable;
+
+    @FXML
+    private TableColumn<?, ?> finestdusernameclumn;
+
+    @FXML
+    private TableColumn<?, ?> finestdduecolumn;
+    
+    @FXML
+    private Label TotalDueStdNoLab;
+    
+     @FXML
+    private Label TotalDueStdLab;
+    
+    @FXML
+    void DueStudentListButtonAction(ActionEvent event){
+        
+        TotalDueStdNoLab.setText("juu");
+        TotalDueStdLab.setText("kjiu");
+        
+    }
+        
     
       // Authority design control ..........end 
 
